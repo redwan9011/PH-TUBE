@@ -20,15 +20,17 @@ const categoryCard = async(categoryId) =>{
     const value = await response.json();
     const info = value.data
      console.log(info)
+
+
     const cardContainer = document.getElementById('card-container')
     cardContainer.textContent =''
      info.forEach(card =>{
+        // console.log(card)
         const div = document.createElement('div')
         div.innerHTML = `
 
         <div class="card card-compact  bg-base-100 shadow-xl rounded-xl">
-        <figure><img class="" src="${card?.thumbnail
-        }" alt="Shoes" /></figure>
+        <figure><img class="" src="${card.thumbnail}" alt="Shoes" /></figure>
         <div class="card-body flex flex-row gap-3">
             <div class="">
                 <img class="rounded-full w-16 h-16" src="${card?.authors[0]?.profile_picture}" alt="">
@@ -44,8 +46,16 @@ const categoryCard = async(categoryId) =>{
         `
         cardContainer.appendChild(div)
      })
+
+
+     
 }
 
 
 categoryName();
 categoryCard('1000');
+
+
+// if(info.length > 0){
+
+// }
