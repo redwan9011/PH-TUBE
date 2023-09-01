@@ -22,30 +22,58 @@ const categoryCard = async(categoryId) =>{
      console.log(info)
 
 
-    const cardContainer = document.getElementById('card-container')
-    cardContainer.textContent =''
-     info.forEach(card =>{
-        // console.log(card)
-        const div = document.createElement('div')
-        div.innerHTML = `
+   
+     if(info.length > 0){
 
-        <div class="card card-compact  bg-base-100 shadow-xl rounded-xl">
-        <figure><img class="" src="${card.thumbnail}" alt="Shoes" /></figure>
-        <div class="card-body flex flex-row gap-3">
-            <div class="">
-                <img class="rounded-full w-16 h-16" src="${card?.authors[0]?.profile_picture}" alt="">
-            </div>
-            <div>
-                <h2 class="text-lg font-bold">${card?.title}></h2>
-                <h6 class="text-gray-600 my-1">${card?.authors[0]?.profile_name}</h6>
-                <p class="text-gray-600 ">${card?.others?.views} views</p>  
+        const cardContainer = document.getElementById('card-container')
+        cardContainer.textContent =''
+         info.forEach(card =>{
+            // console.log(card)
+            const div = document.createElement('div')
+            div.innerHTML = `
+            <div class="card card-compact  bg-base-100 shadow-xl rounded-xl">
+            <figure><img class="" src="${card.thumbnail}" alt="Shoes" /></figure>
+            <div class="card-body flex flex-row gap-3">
+                <div class="">
+                    <img class="rounded-full w-16 h-16" src="${card?.authors[0]?.profile_picture}" alt="">
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold">${card?.title}></h2>
+    
+                    <div class="flex flex-row items-center gap-2">
+                    <h6 class="text-gray-600 my-1">${card?.authors[0]?.profile_name} </h6> 
+                    <span>  ${card?.authors[0]?.verified ? '<img src="./logo/fi_10629607.svg" alt="">' : ''}</span>
+                    </div>
+                   
+                    <p class="text-gray-600 ">${card?.others?.views} views</p>  
+                </div>
             </div>
         </div>
-    </div>
+            
+            `
+            cardContainer.appendChild(div)
+         })
+
+     
+       
+
+     } 
+     else {
+        // clear the card
+        const cardContainer = document.getElementById('card-container')
+        cardContainer.innerHTML = ''
         
+        const cardContainer22 = document.getElementById('card-container22')
+        cardContainer22.textContent = ''
+        const div2 = document.createElement('div');
+        div2.innerHTML = `
+        <div class="flex justify-center mb-6"><img src="./logo/Icon.png" alt=""></div>
+            <h1 class="text-center font-bold text-xl">Oops!! Sorry, There is no <br> content here</h1>
         `
-        cardContainer.appendChild(div)
-     })
+       
+        cardContainer22.appendChild(div2)
+     }
+
 
 
      
