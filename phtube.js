@@ -9,7 +9,7 @@ const categoryName = async()=>{
         // console.log(name)
         const h2 = document.createElement('h2');
         h2.innerHTML = `
-        <a onclick="categoryCard('${name.category_id}')" class="tab bg-gray-200 text-black text-lg px-5  mx-4 rounded-sm">${name?.category}</a>
+        <a onclick="categoryCard('${name.category_id}')" class="tab bg-gray-200 text-black text-lg px-8 md:px-5  mx-4 rounded-sm">${name?.category}</a>
         `
         nameContainer.appendChild(h2)
     })
@@ -21,8 +21,6 @@ const categoryCard = async(categoryId) =>{
     const info = value.data
      console.log(info)
 
-
-   
      if(info.length > 0){
 
         const cardContainer = document.getElementById('card-container')
@@ -32,11 +30,22 @@ const categoryCard = async(categoryId) =>{
             const div = document.createElement('div')
             div.innerHTML = `
             <div class="card card-compact  bg-base-100 shadow-xl rounded-xl">
-            <figure><img class="" src="${card.thumbnail}" alt="Shoes" /></figure>
+            <figure><img class="h-52" src="${card.thumbnail}" alt="Shoes" /></figure>
+
+           
+            <div class="flex justify-end"> 
+            <p class=" relative bottom-9 mr-4 max-w-fit p-2 text-xs text-white  ">
+            ${ card?.others?.posted_date ? ` 
+            <span>${Math.floor(card?.others?.posted_date / 3600)} </span>hrs <span> ${Math.floor((card?.others?.posted_date % 3600) / 60)}</span> minite
+            ` : ''}
+            </p> 
+            </div>
+            
             <div class="card-body flex flex-row gap-3">
                 <div class="">
                     <img class="rounded-full w-16 h-16" src="${card?.authors[0]?.profile_picture}" alt="">
                 </div>
+
                 <div>
                     <h2 class="text-lg font-bold">${card?.title}></h2>
     
@@ -52,11 +61,9 @@ const categoryCard = async(categoryId) =>{
             
             `
             cardContainer.appendChild(div)
+            const cardContainer22 = document.getElementById('card-container22')
+            cardContainer22.textContent = ''
          })
-
-     
-       
-
      } 
      else {
         // clear the card
@@ -70,20 +77,16 @@ const categoryCard = async(categoryId) =>{
         <div class="flex justify-center mb-6"><img src="./logo/Icon.png" alt=""></div>
             <h1 class="text-center font-bold text-xl">Oops!! Sorry, There is no <br> content here</h1>
         `
-       
         cardContainer22.appendChild(div2)
      }
-
-
-
-     
 }
 
 
 categoryName();
 categoryCard('1000');
 
+document.getElementById('blog-window').addEventListener('click', ()=>{
+    window.location.href = 'blog.html'
+})
 
-// if(info.length > 0){
 
-// }
