@@ -30,18 +30,19 @@ const categoryCard = async(categoryId) =>{
             const div = document.createElement('div')
             div.innerHTML = `
             <div class="card card-compact  bg-base-100 shadow-xl rounded-xl">
-            <figure><img class="h-52" src="${card.thumbnail}" alt="Shoes" /></figure>
+            <figure ><img class="h-52" src="${card.thumbnail}" alt="Shoes" /></figure>
 
            
             <div class="flex justify-end"> 
-            <p class=" relative bottom-9 mr-4 max-w-fit p-2 text-xs text-white  ">
-            ${ card?.others?.posted_date ? ` 
-            <span>${Math.floor(card?.others?.posted_date / 3600)} </span>hrs <span> ${Math.floor((card?.others?.posted_date % 3600) / 60)}</span> minite
-            ` : ''}
-            </p> 
+           ${card?.others?.posted_date ? ` 
+           <p class=" relative bottom-9 mr-4 max-w-fit p-2 text-xs text-white bg-black ">
+           ${ card?.others?.posted_date ? ` 
+           <span>${Math.floor(card?.others?.posted_date / 3600)} </span>hrs <span> ${Math.floor((card?.others?.posted_date % 3600) / 60)}</span> min ago` : ''}
+           </p> 
+           ` : ''}
             </div>
             
-            <div class="card-body flex flex-row gap-3">
+            <div class="card-body flex flex-row gap-3 ">
                 <div class="">
                     <img class="rounded-full w-16 h-16" src="${card?.authors[0]?.profile_picture}" alt="">
                 </div>
@@ -88,5 +89,7 @@ categoryCard('1000');
 document.getElementById('blog-window').addEventListener('click', ()=>{
     window.location.href = 'blog.html'
 })
+
+
 
 
