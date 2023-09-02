@@ -45,8 +45,22 @@
                 <div class="collapse-title text-xl font-medium">
                     Discuss the scope of var, let, and const
                 </div>
-                <div class="collapse-content"> 
-                  <p>hello</p>
+                <div class="collapse-content "> 
+                  <h1>In JavaScript, var, let, and const are used to declare variables, and they have different scopes:</h1>
+                  <p>   1. var:
+                     var are visible and accessible within the function where they are declared.
+                  var can define a variable before its declaration. when you run the code, you will see there is no error and that we can declare var variables after defining them. Var can declare globally in the code. Var allowed the value to reassign and redeclare.</p>
+                    <p>
+                      2. let: let variable is used when we need to change the value.
+                      let variables are not hoisted to the top of their block. let variables are only accessible within the block they are declared.let variables do not support hoisting. let also can reassign but not allow to redeclare. so It can be updated but cannot be re-declared into the scope.
+                    </p>
+                  <p> 
+                    3. const: Most of the case, We use const variable.
+                    The scope of a const variable is block scope.const variables do not support hoisting. const variables value cannot reassigned and also redeclare, SO const cannot be updated or re-declared into the scope.  
+                   </p>
+                   <p>                    
+                    In short, the scope of var is function-level, while let and const have block-level scope. var and let can reassign the value but const can't and  only var can redeclare the value, let and const are not allowed to redeclare. </p>
+                 
                 </div>
               </div>
 
@@ -56,7 +70,21 @@
                   Tell us the use cases of null and undefined
                 </div>
                 <div class="collapse-content"> 
-                  <p>hello</p>
+                  <p>Null and undefined are two special values in JavaScript, it has many  differet use cases. 
+               </p>
+               <p>
+                1. NULL:
+                   You can assign null to a variable or property when you want to explicitly indicate that it is no value or value is empty.It is a Primitive value in Javascript.	
+                   Its supported browsers are :Chrome , Microsoft Edge , Internet Explorer , Firefox , Safari , Opera Mini
+                   
+ 
+                  </p>
+              
+            <p>  2. Undefined:
+              It indicates that a variable has been declared but not assigned any value.It is a global property.It is an ECMAScript1 (ES1) feature.Its supported browsers are: Chrome , Microsoft Edge , Internet Explorer , Firefox , Safari , Opera Mini
+               </p>
+              <p>
+                In short,  NUll  is an assingment value and it has been has been assigned as null contains no value and is empty. In the other hand UNDEFINED is when we declare a variable but do not assign a value to do define it then the variable becomes undefined</p>
                 </div>
               </div>
 
@@ -66,7 +94,7 @@
                   What do you mean by REST API?
                 </div>
                 <div class="collapse-content"> 
-                  <p>hello</p>
+                  <p>API means Application Programming Interface. API that conforms to the design principles of the REST, or representational state transfer architectural style. And REST API is a way for different software systems to communicate with each other over the internet.REST APIs communicate via HTTP requests to perform standard database functions like creating, reading, updating, and deleting records  within a resource.</p>
                 </div>
               </div>
         </sectin>
